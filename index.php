@@ -12,22 +12,22 @@ if ($action == NULL) {
     }
 }
 
-switch ($action)
-case ('list_vehicles'):
+switch ($action) {
+case 'list_vehicles':
     // $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
     // $items = get_items_by_category($category_id);
     $vehicle_id = filter_input(INPUT_GET, 'vehicleID', FILTER_VALIDATE_INT);
     $vehicles = get_vehicles($vehicle_id);
     include('admin_vehicle_list.php');
     break;
-case ('list_types'):
+case 'list_types':
     $types = get_types();
     include('type_list.php');
     break;
-case ('list_classes') :
+case 'list_classes':
     $classes = get_classes();
     include('class_list.php');
-case ('delete_vehicle'):
+case 'delete_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicle_id', FILTER_VALIDATE_INT);
     $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
     if ($category_id == NULL || $category_id == FALSE ||
@@ -40,22 +40,22 @@ case ('delete_vehicle'):
         header("Location: .?category_id=$category_id");
     }
     break;
-case ('delete_type'):
+case 'delete_type':
     $type_id = filter_input(INPUT_POST, 'typeID', 
         FILTER_VALIDATE_INT);
     delete_type($type_id);
     header("Location: .?action=list_types");
     break;
-case ('delete_class'):
+case 'delete_class':
     $class_id = filter_input(INPUT_POST, 'classID', 
         FILTER_VALIDATE_INT);
     delete_class($class_id);
     header("Location: .?action=list_classes");
     break;
-case ('show_add_form'):
+case 'show_add_form':
     $types = get_types();
     include('add_vehicle_form.php');    
- case('add_vehicle'):
+case 'add_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicleID', 
         FILTER_VALIDATE_INT);
     $type_id = filter_input(INPUT_POST, 'typeID');
@@ -67,7 +67,7 @@ case ('show_add_form'):
     add_vehicle($type_id, $class_id, $year, $make, $model, $price);
     header("Location: .?vehicleID=$vehicle_id");
     break;
- case('add_type'):
+case 'add_type':
     $type_id = filter_input(INPUT_POST, 'typeID', 
             FILTER_VALIDATE_INT);
     $type_name = filter_input(INPUT_POST, 'type_name');
@@ -80,7 +80,7 @@ case ('show_add_form'):
         header("Location: .?action=list_types");
     }
     break;
- case('add_class'):
+case 'add_class':
     $class_id = filter_input(INPUT_POST, 'classID', 
         FILTER_VALIDATE_INT);
     $class_name = filter_input(INPUT_POST, 'class_name');
@@ -93,6 +93,7 @@ case ('show_add_form'):
         header("Location: .?action=list_classes");
     }
     break; 
+}
  
  
  
