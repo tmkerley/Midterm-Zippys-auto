@@ -20,7 +20,7 @@ case 'list_vehicles':
     $vehicles = get_vehicles($vehicle_id);
     include('admin_vehicle_list.php');
     break;
-    
+
 case 'list_types':
     $types = get_types();
     include('type_list.php');
@@ -29,6 +29,7 @@ case 'list_types':
 case 'list_classes':
     $classes = get_classes();
     include('class_list.php');
+    break;
 
 case 'delete_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicle_id', FILTER_VALIDATE_INT);
@@ -60,13 +61,15 @@ case 'delete_class':
 
 case 'show_add_form':
     $types = get_types();
-    include('add_vehicle_form.php');    
+    $classes = get_classes();
+    include('add_vehicle_form.php');   
+    break;
 
 case 'add_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicleID', 
         FILTER_VALIDATE_INT);
-    $type_id = filter_input(INPUT_POST, 'typeID');
-    $class_id = filter_input(INPUT_POST, 'classID');
+    $type_id = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
+    $class_id = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
     $year = filter_input(INPUT_POST, 'year');
     $make = filter_input(INPUT_POST, 'make');
     $model = filter_input(INPUT_POST, 'model');

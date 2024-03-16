@@ -20,8 +20,8 @@
                             <td><?php echo $vehicle['year']; ?></td>
                             <td><?php echo $vehicle['make']; ?></td>
                             <td><?php echo $vehicle['model']; ?></td>
-                            <td><?php echo $vehicle['type']; ?></td>
-                            <td><?php echo $vehicle['class']; ?></td>
+                            <td><?php echo $vehicle['typeName']; ?></td>
+                            <td><?php echo $vehicle['className']; ?></td>
                             <td><?php echo $vehicle['price']; ?></td>
                             <td><form action="" method="post">
                                 <input type="hidden" name="vehicleID"

@@ -1,13 +1,12 @@
-<?php include 'views\admin_header.php'; ?>
+<?php include_once 'views\admin_header.php'; ?>
 
     <main>
         <h2>Add Vehicle</h2>
         <form action="index.php" method="post" id="add_vehicle">
         <input type="hidden" name="action" value="add_vehicle">
 
-
             <label>Type:</label>
-            <select name="typeID">
+            <select class="form-select" name="typeID">
                 <option value="0">Select Type</option>
                 <?php foreach ($types as $type) : ?>
                     <option value="<?php echo $type['typeID']; ?>">
@@ -16,7 +15,7 @@
                 <?php endforeach; ?>
             </select><br>
             <label>Class:</label>
-            <select name="classID">
+            <select class="form-select" name="classID">
                 <option value="0">Select Class</option>
                 <?php foreach ($classes as $class) : ?>
                     <option value="<?php echo $class['classID']; ?>">
@@ -40,8 +39,10 @@
             <label>&nbsp;</label>
             <input type="submit" value="Add Vehicle" class="btn btn-primary"><br>
         </form>
-        <p><a href="index.php">Back to Admin Vehicle List</a></p>
-        <p><a href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
-        <p><a href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
+        <div class="d-grid gap-2 col-6">
+            <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle List</a></p>
+            <p><a class="btn btn-primary"href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
+            <p><a class="btn btn-primary"href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
+        </div>
     </main>
     <?php include 'views\footer.php'; ?>

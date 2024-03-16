@@ -21,7 +21,7 @@ function get_vehicles($vehicle_id) {
     $statement = $db->prepare($query);
     $statement->bindValue(':vehicleID', $vehicle_id);
     $statement->execute();
-    $vehicles = $statement->fetch();
+    $vehicles = $statement->fetchAll();
     $statement->closeCursor();
     return $vehicles;
 }
@@ -43,7 +43,7 @@ function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
               VALUES
               (:typeID, :classID, :year, :make, :model, :price)';
     $statement = $db->prepare($query);
-    $statement->bindValue(':typeID)', $type_id);
+    $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
     $statement->bindValue(':year', $year);
     $statement->bindValue(':make', $make);
