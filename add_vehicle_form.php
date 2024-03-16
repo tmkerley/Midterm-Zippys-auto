@@ -1,4 +1,4 @@
-<?php include 'view\admin_header.php'; ?>
+<?php include 'views\admin_header.php'; ?>
 
     <main>
         <h2>Add Vehicle</h2>
@@ -44,4 +44,4 @@
         <p><a href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
         <p><a href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
     </main>
-    <?php include 'view\footer.php'; ?>
+    <?php include 'views\footer.php'; ?>

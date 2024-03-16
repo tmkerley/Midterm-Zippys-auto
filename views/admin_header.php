@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Zippy Admin</title>
-    <link rel="stylesheet" type="css" href="view\css\bootstrap.min.css">
+    <link rel="stylesheet" type="css" href="views\css\bootstrap.min.css">
 </head>
 
 <body>

@@ -1,4 +1,4 @@
-<?php include 'view\admin_header.php'; ?>
+<?php include 'views\admin_header.php'; ?>
 
 <main>
     <h2>Vechile Class List</h2>

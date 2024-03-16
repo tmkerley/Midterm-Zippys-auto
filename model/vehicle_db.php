@@ -17,7 +17,7 @@ function get_vehicles($vehicle_id) {
     $query = 'SELECT * FROM vehicles
               INNER JOIN types ON vehicles.typeID = types.typeID
               INNER JOIN classes ON vehicles.classID = classes.classID
-              ORDER BY vehicleID';
+              ORDER BY :vehicleID';
     $statement = $db->prepare($query);
     $statement->bindValue(':vehicleID', $vehicle_id);
     $statement->execute();
