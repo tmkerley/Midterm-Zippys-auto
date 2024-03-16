@@ -1,7 +1,7 @@
 <?php
-    $dsn = '';
-    $username = '';
-    $password = '';
+    $dsn = 'mysql:host=localhost; dbname=ZippyAuto';
+    $username = 'theadmin';
+    $password = 'pa55word';
     
     try {
         $db = new PDO($dsn, $username, $password);
