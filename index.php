@@ -20,41 +20,48 @@ case 'list_vehicles':
     $vehicles = get_vehicles($vehicle_id);
     include('admin_vehicle_list.php');
     break;
+    
 case 'list_types':
     $types = get_types();
     include('type_list.php');
     break;
+
 case 'list_classes':
     $classes = get_classes();
     include('class_list.php');
+
 case 'delete_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicle_id', FILTER_VALIDATE_INT);
     $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
     if ($category_id == NULL || $category_id == FALSE ||
             $vehicle_id == NULL || $vehicle_id == FALSE) {
         $error = "Missing or incorrect Item Num or category id.";
-        include('./errors/error.php');
+        include('errors\error.php');
     } 
     else { 
         delete_item($item_num);
         header("Location: .?category_id=$category_id");
     }
     break;
+
 case 'delete_type':
     $type_id = filter_input(INPUT_POST, 'typeID', 
         FILTER_VALIDATE_INT);
     delete_type($type_id);
     header("Location: .?action=list_types");
     break;
+
 case 'delete_class':
     $class_id = filter_input(INPUT_POST, 'classID', 
         FILTER_VALIDATE_INT);
     delete_class($class_id);
     header("Location: .?action=list_classes");
     break;
+
 case 'show_add_form':
     $types = get_types();
     include('add_vehicle_form.php');    
+
 case 'add_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicleID', 
         FILTER_VALIDATE_INT);
@@ -67,6 +74,7 @@ case 'add_vehicle':
     add_vehicle($type_id, $class_id, $year, $make, $model, $price);
     header("Location: .?vehicleID=$vehicle_id");
     break;
+
 case 'add_type':
     $type_id = filter_input(INPUT_POST, 'typeID', 
             FILTER_VALIDATE_INT);
@@ -80,6 +88,7 @@ case 'add_type':
         header("Location: .?action=list_types");
     }
     break;
+
 case 'add_class':
     $class_id = filter_input(INPUT_POST, 'classID', 
         FILTER_VALIDATE_INT);
