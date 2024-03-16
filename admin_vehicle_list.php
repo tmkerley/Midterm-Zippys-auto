@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
             </div>
-            <p><a href="add_vehicle_form.php">Click here</a> to add a vehicle.</p>
+            <p><a href="index.php?action=show_add_form">Click here</a> to add a vehicle.</p>
         <?php } else {?>
             <p>No Vehicles exist yet. <a href="index.php?action=show_add_form">Click here</a> to add a vehicle.</p>
         <?php } ?>

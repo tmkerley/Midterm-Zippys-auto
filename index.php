@@ -14,8 +14,6 @@ if ($action == NULL) {
 
 switch ($action) {
 case 'list_vehicles':
-    // $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
-    // $items = get_items_by_category($category_id);
     $vehicle_id = filter_input(INPUT_GET, 'vehicleID', FILTER_VALIDATE_INT);
     $vehicles = get_vehicles($vehicle_id);
     include('admin_vehicle_list.php');
