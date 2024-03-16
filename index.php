@@ -30,16 +30,14 @@ case 'list_classes':
     break;
 
 case 'delete_vehicle':
-    $vehicle_id = filter_input(INPUT_POST, 'vehicle_id', FILTER_VALIDATE_INT);
-    $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
-    if ($category_id == NULL || $category_id == FALSE ||
-            $vehicle_id == NULL || $vehicle_id == FALSE) {
+    $vehicle_id = filter_input(INPUT_POST, 'vehicleID', FILTER_VALIDATE_INT);
+    if ($vehicle_id == NULL || $vehicle_id == FALSE) {
         $error = "Missing or incorrect Item Num or category id.";
         include('errors\error.php');
     } 
     else { 
-        delete_item($item_num);
-        header("Location: .?category_id=$category_id");
+        delete_vehicle($vehicle_id);
+        header("Location: .?action=list_vehicles");
     }
     break;
 

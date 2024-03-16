@@ -23,9 +23,10 @@
                             <td><?php echo $vehicle['typeName']; ?></td>
                             <td><?php echo $vehicle['className']; ?></td>
                             <td><?php echo $vehicle['price']; ?></td>
-                            <td><form action="" method="post">
+                            <td><form action="index.php" method="post">
                                 <input type="hidden" name="vehicleID"
                                     value="<?php echo $vehicle['vehicleID']; ?>">
+                                <input type="hidden" name="action" value="delete_vehicle">
                                 <input type="submit" value="Remove" class="btn btn-danger">
                             </form></td>
                         </tr>
