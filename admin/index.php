@@ -101,7 +101,7 @@ case 'add_class':
         header("Location: .?action=list_classes");
     }
     break; 
-}
- 
- 
- 
+default:
+    include 'views\broken.php';
+    break;
+} 

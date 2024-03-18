@@ -4,7 +4,7 @@
     <h2>Vechile Class List</h2>
     <section>
         <div id="table-overflow">
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th colspan="2">Name</th>

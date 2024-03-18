@@ -12,14 +12,34 @@ function get_vehicles_by_type($type_id) {
     return $vehicle;
 }
 
-function get_vehicles($vehicle_id) {
+function get_vehicles($sortType, $typeFilter, $classFilter) {
     global $db;
     $query = 'SELECT * FROM vehicles
               INNER JOIN types ON vehicles.typeID = types.typeID
               INNER JOIN classes ON vehicles.classID = classes.classID
-              ORDER BY :vehicleID';
+              INNER JOIN make ON vehicles.makeID = make.makeID
+              ORDER BY :sortType
+              WHERE vehicles.typeID = :typefilter AND vehicles.classID = :classfilter';
     $statement = $db->prepare($query);
-    $statement->bindValue(':vehicleID', $vehicle_id);
+    $statement->bindValue(':sortType', $sortType);
+    $statement->bindValue(':typefilter', $typeFilter);
+    $statement->bindValue(':classfilter', $classFilter);
+    $statement->execute();
+    $vehicles = $statement->fetchAll();
+    $statement->closeCursor();
+    return $vehicles;
+}
+
+function get_vehicles_filtered($sortType, $filterType) {
+    global $db;
+    $query = 'SELECT * FROM vehicles
+              INNER JOIN types ON vehicles.typeID = types.typeID
+              INNER JOIN classes ON vehicles.classID = classes.classID
+              INNER JOIN make ON vehicles.makeID = make.makeID
+              ORDER BY :sortType
+              WHERE';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':sortType', $sortType);
     $statement->execute();
     $vehicles = $statement->fetchAll();
     $statement->closeCursor();

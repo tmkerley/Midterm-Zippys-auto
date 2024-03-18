@@ -3,7 +3,7 @@
     <section>
         <?php if($vehicles) { ?>
             <div id="table-overflow">
-                <table>
+                <table class="table">
                     <thread>
                         <tr>
                             <th>Year</th>
