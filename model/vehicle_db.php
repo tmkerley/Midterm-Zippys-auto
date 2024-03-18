@@ -12,34 +12,40 @@ function get_vehicles_by_type($type_id) {
     return $vehicle;
 }
 
-function get_vehicles($sortType, $typeFilter, $classFilter) {
+function get_vehicles($sortType, $flag) {
     global $db;
-    $query = 'SELECT * FROM vehicles
-              INNER JOIN types ON vehicles.typeID = types.typeID
-              INNER JOIN classes ON vehicles.classID = classes.classID
-              INNER JOIN make ON vehicles.makeID = make.makeID
-              ORDER BY :sortType
-              WHERE vehicles.typeID = :typefilter AND vehicles.classID = :classfilter';
+    if($flag) {
+        $query = 'SELECT * FROM vehicles
+                INNER JOIN types ON vehicles.typeID = types.typeID
+                INNER JOIN classes ON vehicles.classID = classes.classID
+                INNER JOIN make ON vehicles.makeID = make.makeID
+                ORDER BY :sortType DESC';
+    }
+    else {
+        $query = 'SELECT * FROM vehicles
+                INNER JOIN types ON vehicles.typeID = types.typeID
+                INNER JOIN classes ON vehicles.classID = classes.classID
+                INNER JOIN make ON vehicles.makeID = make.makeID
+                ORDER BY :sortType ASC';
+    }
     $statement = $db->prepare($query);
     $statement->bindValue(':sortType', $sortType);
-    $statement->bindValue(':typefilter', $typeFilter);
-    $statement->bindValue(':classfilter', $classFilter);
     $statement->execute();
     $vehicles = $statement->fetchAll();
     $statement->closeCursor();
     return $vehicles;
 }
 
-function get_vehicles_filtered($sortType, $filterType) {
+function filter_by_make($makeID) {
     global $db;
     $query = 'SELECT * FROM vehicles
               INNER JOIN types ON vehicles.typeID = types.typeID
               INNER JOIN classes ON vehicles.classID = classes.classID
               INNER JOIN make ON vehicles.makeID = make.makeID
-              ORDER BY :sortType
-              WHERE';
+              ORDER BY price
+              WHERE vehicles.makeID = $makeID';
     $statement = $db->prepare($query);
-    $statement->bindValue(':sortType', $sortType);
+    $statement->bindValue(':filterType', $classType);
     $statement->execute();
     $vehicles = $statement->fetchAll();
     $statement->closeCursor();
