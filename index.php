@@ -6,7 +6,7 @@ require('model\vehicle_db.php');
 
 include 'views\public_header.php';
 
-$sortType = filter_input(INPUT_GET, 'sortType');
+$sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
     $sortType = '0';
 }
