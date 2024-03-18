@@ -4,6 +4,8 @@ require('model\classes_db.php');
 require('model\types_db.php');
 require('model\vehicle_db.php');
 
+include 'views\admin_header.php';
+
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -105,3 +107,5 @@ default:
     include 'views\broken.php';
     break;
 } 
+
+include 'views\footer.php';
