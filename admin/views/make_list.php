@@ -9,14 +9,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($classes as $class) : ?>
+                    <?php foreach ($makes as $make) : ?>
                         <tr>
-                            <td><?php echo $class['className']; ?></td>
+                            <td><?php echo $make['makeName']; ?></td>
                             <td>
                                 <form action="index.php" method="post">
-                                    <input type="hidden" name="action" value="delete_class">
-                                    <input type="hidden" name="classID"
-                                      value="<?php echo $class['classID']; ?>">
+                                    <input type="hidden" name="action" value="delete_make">
+                                    <input type="hidden" name="makeID"
+                                      value="<?php echo $make['makeID']; ?>">
                                     <input type="submit" value="Remove" class="btn btn-danger">
                                 </form>
                             </td>
@@ -25,12 +25,12 @@
                 </tbody>
             </table>
         </div>
-        <h2>Add Type</h2>
+        <h2>Add Make</h2>
         <form action="." method="post" id="add_vehicle_form">
-            <input type="hidden" name="action" value="add_class">
+            <input type="hidden" name="action" value="add_make">
             <label>Name:</label>
-            <input type="text" name="class_name" max="20" required><br>
-            <input type="submit" value="Add Class" class="btn btn-primary"><br>
+            <input type="text" name="make_name" max="20" required><br>
+            <input type="submit" value="Add Make" class="btn btn-primary"><br>
         </form>
         <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle list</a></p>
         <p><a class="btn btn-primary" href="index.php?action=show_add_form">Add a vehicle to inventory</a></p>

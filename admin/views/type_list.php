@@ -2,7 +2,7 @@
 <main>
     <h2>Vehicle Type List</h2>
     <section>
-        <div id="table-overflow">
+        <div id="table-overflow" class="container">
             <table class="table">
                 <thead>
                     <tr>
@@ -33,9 +33,10 @@
             <input type="text" name="type_name" max="20" required><br>
             <input type="submit" value="Add Type" class="btn btn-primary"><br>
         </form>
-        <p><a href="index.php">Back to Admin Vehicle List</a></p>
-        <p><a href="index.php?action=show_add_form">Add a Vehicle to Inventory</a></p>
-        <p><a href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
+        <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle List</a></p>
+        <p><a class="btn btn-primary" href="index.php?action=show_add_form">Add a Vehicle to Inventory</a></p>
+        <p><a class="btn btn-primary" href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
+        <p><a class="btn btn-primary" href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
     </section>
 </main>
 <?php include 'views\footer.php'; ?>

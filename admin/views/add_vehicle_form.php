@@ -48,6 +48,7 @@
         <div class="d-grid gap-2 col-6">
             <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle List</a></p>
             <p><a class="btn btn-primary"href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
+            <p><a class="btn btn-primary"href="index.php?action=list_makes">View/Edit Vehicle Makes</a></p>
             <p><a class="btn btn-primary"href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
         </div>
     </main>
