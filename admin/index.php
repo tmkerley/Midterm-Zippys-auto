@@ -2,6 +2,7 @@
 require('model\database.php');
 require('model\classes_db.php');
 require('model\types_db.php');
+require('model\make_db.php');
 require('model\vehicle_db.php');
 
 include 'views\admin_header.php';
@@ -18,17 +19,22 @@ switch ($action) {
 case 'list_vehicles':
     $vehicle_id = filter_input(INPUT_GET, 'vehicleID', FILTER_VALIDATE_INT);
     $vehicles = get_vehicles($vehicle_id);
-    include('admin_vehicle_list.php');
+    include('views\admin_vehicle_list.php');
     break;
 
 case 'list_types':
     $types = get_types();
-    include('type_list.php');
+    include('views\type_list.php');
     break;
 
 case 'list_classes':
     $classes = get_classes();
-    include('class_list.php');
+    include('views\class_list.php');
+    break;
+
+case 'list_makes':
+    $classes = get_makess();
+    include('views\make_list.php');
     break;
 
 case 'delete_vehicle':
@@ -60,7 +66,7 @@ case 'delete_class':
 case 'show_add_form':
     $types = get_types();
     $classes = get_classes();
-    include('add_vehicle_form.php');   
+    include('views\add_vehicle_form.php');   
     break;
 
 case 'add_vehicle':
@@ -103,6 +109,19 @@ case 'add_class':
         header("Location: .?action=list_classes");
     }
     break; 
+case 'add_make':
+        $makeID = filter_input(INPUT_POST, 'makeID', 
+            FILTER_VALIDATE_INT);
+        $makeName = filter_input(INPUT_POST, 'makeName');
+        if ($makeName == NULL) {
+            $error = "Invalid item data. Check all fields and try again.";
+            include('./errors/error.php');
+        } 
+        else { 
+            add_make($makeID, $makeName);
+            header("Location: .?action=list_makes");
+        }
+        break; 
 default:
     include 'views\broken.php';
     break;

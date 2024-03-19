@@ -1,4 +1,3 @@
-<?php include 'views\admin_header.php' ; ?>
 <main>
     <section>
         <?php if($vehicles) { ?>
@@ -18,7 +17,7 @@
                         <?php foreach ($vehicles as $vehicle) : ?>
                         <tr>
                             <td><?php echo $vehicle['year']; ?></td>
-                            <td><?php echo $vehicle['make']; ?></td>
+                            <td><?php echo $vehicle['makeName']; ?></td>
                             <td><?php echo $vehicle['model']; ?></td>
                             <td><?php echo $vehicle['typeName']; ?></td>
                             <td><?php echo $vehicle['className']; ?></td>
@@ -43,4 +42,3 @@
         <p><a href="index.php?action=list_classes">View/Edit Vehicle Classes</a></p>
     </section>
 </main>
-<?php include 'views\footer.php' ; ?>

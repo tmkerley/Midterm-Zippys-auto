@@ -23,6 +23,15 @@
                     </option>
                 <?php endforeach; ?>
             </select><br>
+            <label>Make:</label>
+            <select class="form-select" name="classID">
+                <option value="0">Select Make</option>
+                <?php foreach ($makes as $make) : ?>
+                    <option value="<?php echo $make['makeID']; ?>">
+                        <?php echo $make['makeName']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select><br>
           
             <label>Year:</label>
             <input type="text" name="year" max="20" required><br>

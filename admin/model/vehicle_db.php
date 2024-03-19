@@ -17,6 +17,7 @@ function get_vehicles($vehicle_id) {
     $query = 'SELECT * FROM vehicles
               INNER JOIN types ON vehicles.typeID = types.typeID
               INNER JOIN classes ON vehicles.classID = classes.classID
+              INNER JOIN make ON vehicles.makeID = make.makeID
               ORDER BY :vehicleID';
     $statement = $db->prepare($query);
     $statement->bindValue(':vehicleID', $vehicle_id);
@@ -39,14 +40,14 @@ function delete_vehicle($vehicle_id) {
 function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
     global $db;
     $query = 'INSERT INTO vehicles
-                (typeID, classID, year, make, model, price)
+                (typeID, classID, year, makeName, model, price)
               VALUES
-              (:typeID, :classID, :year, :make, :model, :price)';
+              (:typeID, :classID, :year, :makeName, :model, :price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
     $statement->bindValue(':year', $year);
-    $statement->bindValue(':make', $make);
+    $statement->bindValue(':makeName', $make);
     $statement->bindValue(':model', $model);
     $statement->bindValue(':price', $price);
     $statement->execute();
