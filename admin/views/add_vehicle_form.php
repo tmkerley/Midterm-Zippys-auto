@@ -36,9 +36,6 @@
             <label>Year:</label>
             <input type="text" name="year" max="20" required><br>
 
-            <label>Make:</label>
-            <input type="text" name="make" max="50" required><br>
-
             <label>Model:</label>
             <input type="text" name="model" max="50" required><br>
 
