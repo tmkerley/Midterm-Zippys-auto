@@ -1,5 +1,6 @@
 <?php 
 include 'views/public_header.php';
+
 require('model/database.php');
 require('model/classes_db.php');
 require('model/types_db.php');
