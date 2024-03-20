@@ -1,4 +1,4 @@
-<?php include_once './views/admin_header.php'; ?>
+<?php include_once './views/public_header.php'; ?>
 
 <main>
     <h2 class="top">Error</h2>
