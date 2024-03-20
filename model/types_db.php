@@ -1,7 +1,7 @@
 <?php
     function get_types() {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     SELECT * FROM types
                     ORDER BY typeID';
         $statement = $db->prepare($query);
@@ -13,7 +13,7 @@
 
     function get_type_name($type_id) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     SELECT * FROM types
                     WHERE typeID = :typeID';
         $statement = $db->prepare($query);
@@ -26,7 +26,7 @@
 
     function delete_type($type_id) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     DELETE FROM types
                     WHERE typeID = :typeID';
         $statement = $db->prepare($query);
@@ -37,7 +37,7 @@
 
     function add_type($type_id, $type_name) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     INSERT INTO types
                     (typeID, typeName)
                     VALUES

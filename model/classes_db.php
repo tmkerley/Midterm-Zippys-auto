@@ -1,7 +1,7 @@
 <?php
     function get_classes() {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     SELECT * FROM classes
                     ORDER BY classID';
         $statement = $db->prepare($query);
@@ -13,7 +13,7 @@
 
     function get_class_name($class_id) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     SELECT * FROM classes
                     WHERE classID = :classID';
         $statement = $db->prepare($query);
@@ -26,7 +26,7 @@
 
     function delete_class($class_id) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     DELETE FROM classes
                     WHERE classID = :classID';
         $statement = $db->prepare($query);
@@ -37,7 +37,7 @@
 
     function add_class($class_id, $class_name) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                     INSERT INTO classes
                     (classID, className)
                     VALUES
