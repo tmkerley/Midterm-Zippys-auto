@@ -35,5 +35,6 @@
         <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle list</a></p>
         <p><a class="btn btn-primary" href="index.php?action=show_add_form">Add a vehicle to inventory</a></p>
         <p><a class="btn btn-primary" href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
+        <p><a class="btn btn-primary"href="index.php?action=list_makes">View/Edit Vehicle Makes</a></p>
     </section>
 </main>

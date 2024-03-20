@@ -33,7 +33,7 @@ case 'list_classes':
     break;
 
 case 'list_makes':
-    $classes = get_makess();
+    $makes = get_make();
     include('views\make_list.php');
     break;
 
@@ -61,6 +61,13 @@ case 'delete_class':
         FILTER_VALIDATE_INT);
     delete_class($class_id);
     header("Location: .?action=list_classes");
+    break;
+
+case 'delete_make':
+    $makeID = filter_input(INPUT_POST, 'makeID', 
+        FILTER_VALIDATE_INT);
+    delete_make($makeID);
+    header("Location: .?action=list_makes");
     break;
 
 case 'show_add_form':
@@ -91,7 +98,7 @@ case 'add_type':
         include('./errors/error.php');
     } 
     else { 
-        add_type($type_id, $type_name);
+        add_type($type_name);
         header("Location: .?action=list_types");
     }
     break;
@@ -105,7 +112,7 @@ case 'add_class':
         include('./errors/error.php');
     } 
     else { 
-        add_class($class_id, $class_name);
+        add_class($class_name);
         header("Location: .?action=list_classes");
     }
     break; 
@@ -118,7 +125,7 @@ case 'add_make':
             include('./errors/error.php');
         } 
         else { 
-            add_make($makeID, $makeName);
+            add_make($makeName);
             header("Location: .?action=list_makes");
         }
         break; 

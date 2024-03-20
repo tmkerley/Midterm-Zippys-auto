@@ -26,10 +26,10 @@
             </table>
         </div>
         <h2>Add Make</h2>
-        <form action="." method="post" id="add_vehicle_form">
+        <form action="." method="post" id="add_make_form">
             <input type="hidden" name="action" value="add_make">
             <label>Name:</label>
-            <input type="text" name="make_name" max="20" required><br>
+            <input type="text" name="makeName" max="20" required><br>
             <input type="submit" value="Add Make" class="btn btn-primary"><br>
         </form>
         <p><a class="btn btn-primary" href="index.php">Back to Admin Vehicle list</a></p>

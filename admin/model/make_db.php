@@ -34,12 +34,11 @@
 
     function add_make($makeName) {
         global $db;
-        $query = 'INSERT INTO make.makeName
-                  VALUES :makeName';
+        $query = 'INSERT INTO make (makeName)
+                  VALUES (:makeName)';
         $statement = $db->prepare($query);
         $statement->bindValue(':makeName', $makeName);
         $statement->execute();
         $statement->closeCursor();
     }
-
 ?>
