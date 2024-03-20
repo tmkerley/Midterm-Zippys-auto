@@ -1,7 +1,8 @@
 <?php
 function get_vehicles_by_type($type_id) {
     global $db;
-    $query = 'SELECT * FROM vehicles
+    $query = 'USE w2rm76kscxad3b8d
+              SELECT * FROM vehicles
               WHERE vehicles.typeID = :typeID
               ORDER BY vehicleID';
     $statement = $db->prepare($query);
@@ -14,7 +15,8 @@ function get_vehicles_by_type($type_id) {
 
 function get_vehicles() {
     global $db;
-    $query = 'SELECT * FROM vehicles
+    $query = 'USE w2rm76kscxad3b8d
+        SELECT * FROM vehicles
         INNER JOIN types ON vehicles.typeID = types.typeID
         INNER JOIN classes ON vehicles.classID = classes.classID
         INNER JOIN make ON vehicles.makeID = make.makeID
@@ -29,14 +31,16 @@ function get_vehicles() {
 function get_sorted_vehicles($sortType, $flag) {
     global $db;
     if($flag) {
-        $query = 'SELECT * FROM vehicles
+        $query = 'USE w2rm76kscxad3b8d
+                SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
                 INNER JOIN make ON vehicles.makeID = make.makeID
                 ORDER BY :sortType DESC';
     }
     else {
-        $query = 'SELECT * FROM vehicles
+        $query = 'USE w2rm76kscxad3b8d
+                SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
                 INNER JOIN make ON vehicles.makeID = make.makeID
@@ -52,12 +56,13 @@ function get_sorted_vehicles($sortType, $flag) {
 
 function filter_by_make($makeID) {
     global $db;
-    $query = 'SELECT * FROM vehicles
-              INNER JOIN types ON vehicles.typeID = types.typeID
-              INNER JOIN classes ON vehicles.classID = classes.classID
-              INNER JOIN make ON vehicles.makeID = make.makeID
-              ORDER BY price
-              WHERE vehicles.makeID = $makeID';
+    $query = 'USE w2rm76kscxad3b8d
+                SELECT * FROM vehicles
+                INNER JOIN types ON vehicles.typeID = types.typeID
+                INNER JOIN classes ON vehicles.classID = classes.classID
+                INNER JOIN make ON vehicles.makeID = make.makeID
+                ORDER BY price
+                WHERE vehicles.makeID = $makeID';
     $statement = $db->prepare($query);
     $statement->bindValue(':filterType', $classType);
     $statement->execute();
@@ -68,8 +73,9 @@ function filter_by_make($makeID) {
 
 function delete_vehicle($vehicle_id) {
     global $db;
-    $query = 'DELETE FROM vehicles
-              WHERE vehicleID = :vehicleID';
+    $query = 'USE w2rm76kscxad3b8d
+                DELETE FROM vehicles
+                WHERE vehicleID = :vehicleID';
     $statement = $db->prepare($query);
     $statement->bindValue(':vehicleID', $vehicle_id);
     $statement->execute();
@@ -78,10 +84,11 @@ function delete_vehicle($vehicle_id) {
 
 function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
     global $db;
-    $query = 'INSERT INTO vehicles
+    $query = 'USE w2rm76kscxad3b8d
+                INSERT INTO vehicles
                 (typeID, classID, year, make, model, price)
-              VALUES
-              (:typeID, :classID, :year, :make, :model, :price)';
+                VALUES
+                (:typeID, :classID, :year, :make, :model, :price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
