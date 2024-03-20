@@ -32,14 +32,13 @@
         $statement->closeCursor();
     }
 
-    function add_type($type_id, $type_name) {
+    function add_type($type_name) {
         global $db;
         $query = 'INSERT INTO types
-                    (typeID, typeName)
+                    (typeName)
                   VALUES
-                    (:typeID, :typeName)';
+                    (:typeName)';
         $statement = $db->prepare($query);
-        $statement->bindValue(':typeID', $type_id);
         $statement->bindValue(':typeName', $type_name);
         $statement->execute();
         $statement->closeCursor();
