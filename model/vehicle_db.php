@@ -1,4 +1,7 @@
 <?php
+
+require 'database.php';
+
 function get_vehicles_by_type($type_id) {
     global $db;
     $query = 'USE w2rm76kscxad3b8d;
