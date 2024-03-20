@@ -1,7 +1,7 @@
 <?php
 function get_vehicles_by_type($type_id) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d
+    $query = 'USE w2rm76kscxad3b8d;
               SELECT * FROM vehicles
               WHERE vehicles.typeID = :typeID
               ORDER BY vehicleID';
@@ -15,7 +15,7 @@ function get_vehicles_by_type($type_id) {
 
 function get_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d
+    $query = 'USE w2rm76kscxad3b8d;
         SELECT * FROM vehicles
         INNER JOIN types ON vehicles.typeID = types.typeID
         INNER JOIN classes ON vehicles.classID = classes.classID
@@ -31,7 +31,7 @@ function get_vehicles() {
 function get_sorted_vehicles($sortType, $flag) {
     global $db;
     if($flag) {
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                 SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
@@ -39,7 +39,7 @@ function get_sorted_vehicles($sortType, $flag) {
                 ORDER BY :sortType DESC';
     }
     else {
-        $query = 'USE w2rm76kscxad3b8d
+        $query = 'USE w2rm76kscxad3b8d;
                 SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
@@ -56,7 +56,7 @@ function get_sorted_vehicles($sortType, $flag) {
 
 function filter_by_make($makeID) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d
+    $query = 'USE w2rm76kscxad3b8d;
                 SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
@@ -73,7 +73,7 @@ function filter_by_make($makeID) {
 
 function delete_vehicle($vehicle_id) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d
+    $query = 'USE w2rm76kscxad3b8d;
                 DELETE FROM vehicles
                 WHERE vehicleID = :vehicleID';
     $statement = $db->prepare($query);
@@ -84,7 +84,7 @@ function delete_vehicle($vehicle_id) {
 
 function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d
+    $query = 'USE w2rm76kscxad3b8d;
                 INSERT INTO vehicles
                 (typeID, classID, year, make, model, price)
                 VALUES
