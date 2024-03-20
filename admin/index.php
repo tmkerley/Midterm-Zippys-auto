@@ -1,7 +1,7 @@
 <?php 
 include 'views/admin_header.php';
 
-require 'model\database.php';
+require './model/database.php';
 require('model\classes_db.php');
 require('model\types_db.php');
 require('model\make_db.php');
