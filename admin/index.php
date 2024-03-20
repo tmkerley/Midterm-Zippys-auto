@@ -1,11 +1,11 @@
 <?php 
-include 'views/admin_header.php';
+include './views/admin_header.php';
 
 require './model/database.php';
-require('model\classes_db.php');
-require('model\types_db.php');
-require('model\make_db.php');
-require('model\vehicle_db.php');
+require('./model/classes_db.php');
+require('./model/types_db.php');
+require('./model/make_db.php');
+require('./model/vehicle_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -19,29 +19,29 @@ switch ($action) {
 case 'list_vehicles':
     $vehicle_id = filter_input(INPUT_GET, 'vehicleID', FILTER_VALIDATE_INT);
     $vehicles = get_vehicles($vehicle_id);
-    include('views\admin_vehicle_list.php');
+    include('./views/admin_vehicle_list.php');
     break;
 
 case 'list_types':
     $types = get_types();
-    include('views\type_list.php');
+    include('./views/type_list.php');
     break;
 
 case 'list_classes':
     $classes = get_classes();
-    include('views\class_list.php');
+    include('./views/class_list.php');
     break;
 
 case 'list_makes':
     $makes = get_make();
-    include('views\make_list.php');
+    include('./views/make_list.php');
     break;
 
 case 'delete_vehicle':
     $vehicle_id = filter_input(INPUT_POST, 'vehicleID', FILTER_VALIDATE_INT);
     if ($vehicle_id == NULL || $vehicle_id == FALSE) {
         $error = "Missing or incorrect Item Num or category id.";
-        include('errors\error.php');
+        include('./errors/error.php');
     } 
     else { 
         delete_vehicle($vehicle_id);
@@ -74,7 +74,7 @@ case 'show_add_form':
     $types = get_types();
     $classes = get_classes();
     $makes = get_make();
-    include('views\add_vehicle_form.php');   
+    include('./views/add_vehicle_form.php');   
     break;
 
 case 'add_vehicle':
@@ -131,8 +131,8 @@ case 'add_make':
         }
         break; 
 default:
-    include 'views\broken.php';
+    include './views/broken.php';
     break;
 } 
 
-include 'views\footer.php';
+include './views/footer.php';

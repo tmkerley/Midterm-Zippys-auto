@@ -1,11 +1,11 @@
 <?php 
-include 'views/public_header.php';
+include './views/public_header.php';
 
 try {
-require 'model/database.php';
-require 'model/classes_db.php';
-require 'model/types_db.php';
-require 'model/vehicle_db.php';
+require './model/database.php';
+require './model/classes_db.php';
+require './model/types_db.php';
+require './model/vehicle_db.php';
 }
 catch (PDOExeption $e) {
     $error_message = $e->getMessage();
@@ -38,7 +38,7 @@ case '4':
     break;
 default:
     $error = "Null, false, or wrong value for sortType.";
-    include 'errors\error.php';
+    include './errors/error.php';
     break;
 }
 
@@ -46,6 +46,6 @@ $types = get_types();
 $classes = get_classes();
 $make = get_make();
 
-include('views\vehicle_list.php');
+include('./views/vehicle_list.php');
 
-include 'views\footer.php';
+include './views/footer.php';
