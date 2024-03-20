@@ -1,4 +1,3 @@
-<?php include 'views\admin_header.php'; ?>
 <main>
     <h2>Vehicle Type List</h2>
     <section>
@@ -39,4 +38,3 @@
         <p><a class="btn btn-primary" href="index.php?action=list_types">View/Edit Vehicle Types</a></p>
     </section>
 </main>
-<?php include 'views\footer.php'; ?>
