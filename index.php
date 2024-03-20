@@ -5,6 +5,7 @@ require './model/database.php';
 require './model/classes_db.php';
 require './model/types_db.php';
 require './model/vehicle_db.php';
+require './model/make_db.php';
 
 $sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
