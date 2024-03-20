@@ -6,4 +6,4 @@ database.php took a while; file path changes, the adding the 'USE' function to
 all queries. Further, it would call syntax errors on previously working 
 functions. I built this app using XAMPP prior to deployment on Heroku. I have
 had to alter nearly every file for this work. After getting the vehicle list to
-finally show up, none of the data from the database was showing.
+finally show up, none of the data from the database was showing. 

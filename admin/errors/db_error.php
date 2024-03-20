@@ -1,4 +1,4 @@
-<?php include '../view/admin_header.php'; ?>
+<?php include './view/admin_header.php'; ?>
 
     <main>
         <h1>Database Error</h1>
