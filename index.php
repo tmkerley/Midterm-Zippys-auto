@@ -1,10 +1,9 @@
 <?php 
-require('app/model/database.php');
+include 'views/public_header.php';
+require('model/database.php');
 require('model/classes_db.php');
 require('model/types_db.php');
 require('model/vehicle_db.php');
-
-include 'views/public_header.php';
 
 $sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
