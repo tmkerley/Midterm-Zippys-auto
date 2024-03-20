@@ -17,9 +17,9 @@ function get_vehicles() {
     global $db;
     $query = 'USE w2rm76kscxad3b8d
         SELECT * FROM vehicles
-        JOIN types ON vehicles.typeID = types.typeID
-        JOIN classes ON vehicles.classID = classes.classID
-        JOIN make ON vehicles.makeID = make.makeID
+        INNER JOIN types ON vehicles.typeID = types.typeID
+        INNER JOIN classes ON vehicles.classID = classes.classID
+        INNER JOIN make ON vehicles.makeID = make.makeID
         ORDER BY price';
     $statement = $db->prepare($query);
     $statement->execute();
