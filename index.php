@@ -1,5 +1,5 @@
 <?php 
-require('model/database.php');
+require('app/model/database.php');
 require('model/classes_db.php');
 require('model/types_db.php');
 require('model/vehicle_db.php');
