@@ -15,12 +15,11 @@ function get_vehicles_by_type($type_id) {
 
 function get_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d;
-        SELECT * FROM vehicles
-        INNER JOIN types ON vehicles.typeID = types.typeID
-        INNER JOIN classes ON vehicles.classID = classes.classID
-        INNER JOIN make ON vehicles.makeID = make.makeID
-        ORDER BY price';
+    $query = 'SELECT * FROM vehicles
+    INNER JOIN types ON vehicles.typeID = types.typeID
+    INNER JOIN classes ON vehicles.classID = classes.classID
+    INNER JOIN make ON vehicles.makeID = make.makeID
+    ORDER BY price';
     $statement = $db->prepare($query);
     $statement->execute();
     $vehicles = $statement->fetchAll();
@@ -31,16 +30,14 @@ function get_vehicles() {
 function get_sorted_vehicles($sortType, $flag) {
     global $db;
     if($flag) {
-        $query = 'USE w2rm76kscxad3b8d;
-                SELECT * FROM vehicles
+        $query = 'SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
                 INNER JOIN make ON vehicles.makeID = make.makeID
                 ORDER BY :sortType DESC';
     }
     else {
-        $query = 'USE w2rm76kscxad3b8d;
-                SELECT * FROM vehicles
+        $query = 'SELECT * FROM vehicles
                 INNER JOIN types ON vehicles.typeID = types.typeID
                 INNER JOIN classes ON vehicles.classID = classes.classID
                 INNER JOIN make ON vehicles.makeID = make.makeID
