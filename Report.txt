@@ -1,0 +1,7 @@
+There were two parts that took most of my efforts. The first, and being the 
+largest was the deployment to heroku. First, I had no indication why I was 
+getting HTTP error 500. Then, after tyring many different things, I searched 
+and found a logs page on heroku. Fixing the database name formating in 
+database.php took a while; file path changes, the adding the 'USE' function to 
+all queries. The second was adding the sort features. I wasn't sure how to 
+approach it best so many different methods and attempts were made.
