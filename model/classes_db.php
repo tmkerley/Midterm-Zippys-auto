@@ -35,15 +35,14 @@
         $statement->closeCursor();
     }
 
-    function add_class($class_id, $class_name) {
+    function add_class($class_name) {
         global $db;
         $query = 'USE w2rm76kscxad3b8d;
                     INSERT INTO classes
-                    (classID, className)
+                    (className)
                     VALUES
-                    (:classID, :className)';
+                    (:className)';
         $statement = $db->prepare($query);
-        $statement->bindValue(':classID', $class_id);
         $statement->bindValue(':className', $class_name);
         $statement->execute();
         $statement->closeCursor();
