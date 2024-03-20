@@ -1,5 +1,5 @@
 <?php 
-include 'views\admin_header.php';
+include 'views/admin_header.php';
 
 require 'model\database.php';
 require('model\classes_db.php');
