@@ -73,6 +73,7 @@ case 'delete_make':
 case 'show_add_form':
     $types = get_types();
     $classes = get_classes();
+    $makes = get_make();
     include('views\add_vehicle_form.php');   
     break;
 
@@ -81,11 +82,11 @@ case 'add_vehicle':
         FILTER_VALIDATE_INT);
     $type_id = filter_input(INPUT_POST, 'typeID', FILTER_VALIDATE_INT);
     $class_id = filter_input(INPUT_POST, 'classID', FILTER_VALIDATE_INT);
-    $year = filter_input(INPUT_POST, 'year');
-    $make = filter_input(INPUT_POST, 'make');
+    $make_id = filter_input(INPUT_POST, 'makeID', FILTER_VALIDATE_INT);
+    $year = filter_input(INPUT_POST, 'year', FILTER_VALIDATE_INT);
     $model = filter_input(INPUT_POST, 'model');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-    add_vehicle($type_id, $class_id, $year, $make, $model, $price);
+    add_vehicle($type_id, $class_id, $make_id, $year, $model, $price);
     header("Location: .?vehicleID=$vehicle_id");
     break;
 

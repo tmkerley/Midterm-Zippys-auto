@@ -37,17 +37,17 @@ function delete_vehicle($vehicle_id) {
     $statement->closeCursor();
 }
 
-function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
+function add_vehicle($type_id, $class_id, $make_id, $year, $model, $price) {
     global $db;
     $query = 'INSERT INTO vehicles
-                (typeID, classID, year, makeName, model, price)
+                (typeID, classID, year, makeID, model, price)
               VALUES
-              (:typeID, :classID, :year, :makeName, :model, :price)';
+              (:typeID, :classID, :year, :makeID, :model, :price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
+    $statement->bindValue(':makeID', $make_id);
     $statement->bindValue(':year', $year);
-    $statement->bindValue(':makeName', $make);
     $statement->bindValue(':model', $model);
     $statement->bindValue(':price', $price);
     $statement->execute();

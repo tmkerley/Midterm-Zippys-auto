@@ -22,7 +22,7 @@
             <?php endforeach; ?>
         </select><br>
         <label>Make:</label>
-        <select class="form-select" name="classID">
+        <select class="form-select" name="makeID">
             <option value="0">Select Make</option>
             <?php foreach ($makes as $make) : ?>
                 <option value="<?php echo $make['makeID']; ?>">
