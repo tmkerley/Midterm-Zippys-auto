@@ -17,7 +17,7 @@ case '0':
 case '1':
     $sortType = 'price';
     $vehicles = get_vehicles();
-    if($vehicles) {
+    if(empty($vehicles)) {
         $error = "Theres nothing in the index variable $vehicles.";
         include './errors/error.php';
     }
