@@ -12,7 +12,21 @@ function get_vehicles_by_type($type_id) {
     return $vehicle;
 }
 
-function get_vehicles($sortType, $flag) {
+function get_vehicles() {
+    global $db;
+    $query = 'SELECT * FROM vehicles
+        INNER JOIN types ON vehicles.typeID = types.typeID
+        INNER JOIN classes ON vehicles.classID = classes.classID
+        INNER JOIN make ON vehicles.makeID = make.makeID
+        ORDER BY price';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $vehicles = $statement->fetchAll();
+    $statement->closeCursor();
+    return $vehicles;
+}
+
+function get_sorted_vehicles($sortType, $flag) {
     global $db;
     if($flag) {
         $query = 'SELECT * FROM vehicles

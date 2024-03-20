@@ -1,17 +1,10 @@
 <?php 
 include './views/public_header.php';
 
-try {
 require './model/database.php';
 require './model/classes_db.php';
 require './model/types_db.php';
 require './model/vehicle_db.php';
-}
-catch (PDOExeption $e) {
-    $error_message = $e->getMessage();
-    include('../errors/database_error.php');
-    exit();
-}
 
 $sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
