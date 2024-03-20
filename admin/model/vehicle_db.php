@@ -14,7 +14,8 @@ function get_vehicles_by_type($type_id) {
 
 function get_vehicles($vehicle_id) {
     global $db;
-    $query = 'SELECT * FROM vehicles
+    $query = 'USE w2rm76kscxad3b8d
+              SELECT * FROM vehicles
               INNER JOIN types ON vehicles.typeID = types.typeID
               INNER JOIN classes ON vehicles.classID = classes.classID
               INNER JOIN make ON vehicles.makeID = make.makeID
