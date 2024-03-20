@@ -1,11 +1,11 @@
 <?php 
-require('model\database.php');
+include 'views\admin_header.php';
+
+require 'model\database.php';
 require('model\classes_db.php');
 require('model\types_db.php');
 require('model\make_db.php');
 require('model\vehicle_db.php');
-
-include 'views\admin_header.php';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
