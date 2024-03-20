@@ -14,7 +14,7 @@ function get_vehicles_by_type($type_id) {
 }
 
 function get_vehicles() {
-    // global $db;
+    global $db;
     $query = 'USE w2rm76kscxad3b8d;
         SELECT * FROM vehicles
         INNER JOIN types ON vehicles.typeID = types.typeID
@@ -29,7 +29,7 @@ function get_vehicles() {
 }
 
 function get_sorted_vehicles($sortType, $flag) {
-    // global $db;
+    global $db;
     if($flag) {
         $query = 'USE w2rm76kscxad3b8d;
                 SELECT * FROM vehicles
