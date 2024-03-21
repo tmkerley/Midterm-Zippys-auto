@@ -1,9 +1,9 @@
 <?php
     function get_make() {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d;
-                    SELECT * FROM make
-                    ORDER BY makeID';
+        $query = '
+            SELECT * FROM make
+            ORDER BY makeID';
         $statement = $db->prepare($query);
         $statement->execute();
         $make = $statement->fetchAll();
@@ -13,9 +13,9 @@
 
     function get_makeName($makeID) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d;
-                    SELECT * FROM make
-                    WHERE makeID = :makeID';
+        $query = '
+            SELECT * FROM make
+            WHERE makeID = :makeID';
         $statement = $db->prepare($query);
         $statement->bindValue(':makeID', $makeID);
         $statement->execute();
@@ -26,9 +26,9 @@
 
     function delete_make($makeID) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d;
-                    DELETE FROM make
-                    WHERE makeID = :makeID';
+        $query = '
+            DELETE FROM make
+            WHERE makeID = :makeID';
         $statement = $db->prepare($query);
         $statement->bindValue(':makeID', $makeID);
         $statement->execute();
@@ -37,9 +37,9 @@
 
     function add_make($makeName) {
         global $db;
-        $query = 'USE w2rm76kscxad3b8d;
-                    INSERT INTO make (makeName)
-                    VALUES (:makeName)';
+        $query = '
+            INSERT INTO make (makeName)
+            VALUES (:makeName)';
         $statement = $db->prepare($query);
         $statement->bindValue(':makeName', $makeName);
         $statement->execute();
