@@ -1,25 +1,27 @@
 <main>
     <section>
         <div class="container">
-        Filter by Type:
-        <select class="form-select" name="typefilter">
-            <option value="0">Select Type</option>
-            <?php foreach ($types as $type) : ?>
-                <option value="<?php echo $type['typeID']; ?>">
-                    <?php echo $type['typeName']; ?>
-                </option>
-            <?php endforeach; ?>
-            <input class="btn btn-primary" type="submit" value="typeFilter">
-            </select>
-        Filter by Class:
-            <select class="form-select" name="classfilter">
-            <?php foreach ($classes as $class) : ?>
-                <option value="<?php echo $class['classID']; ?>">
-                    <?php echo $class['className']; ?>
-                </option>
-            <?php endforeach; ?>
-            </select><br>
-            <input class="btn btn-primary" type="submit" value="classFilter">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="filterTypesSelector">By Types:</label>
+                <select class="form-select" name="typefilter" id="filterTypesSelector">
+                <option value="0">Select Type</option>
+                <?php foreach ($types as $type) : ?>
+                    <option value="<?php echo $type['typeID']; ?>">
+                        <?php echo $type['typeName']; ?>
+                    </option>
+                <?php endforeach; ?>
+                <input class="btn btn-primary" type="submit" value="typeFilter">
+                </select>
+            </div>
+                Filter by Class:
+                <select class="form-select" name="classfilter">
+                <?php foreach ($classes as $class) : ?>
+                    <option value="<?php echo $class['classID']; ?>">
+                        <?php echo $class['className']; ?>
+                    </option>
+                <?php endforeach; ?>
+                </select><br>
+                <input class="btn btn-primary" type="submit" value="classFilter">
         </div>
 
         <div class="container">
