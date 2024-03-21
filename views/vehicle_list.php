@@ -2,7 +2,6 @@
     <div class="container">
         <div class="input-group mb-3">
             <form action="index.php" method="post">
-                <label class="input-group-text" for="filterTypesSelector">Types:</label>
                 <select class="form-select" name="typefilter" id="filterTypesSelector">
                 <option value="0">Select Type</option>
                 <?php foreach ($types as $type) : ?>
@@ -10,7 +9,8 @@
                         <?php echo $type['typeName']; ?>
                     </option>
                 <?php endforeach; ?>
-                <input class="btn btn-primary" type="submit" value="Filter">
+                <input class="btn btn-outline-secondary" type="submit" 
+                    value="Filter type" for="filterTypesSelector">
                 </select>
             </form>
         </div>

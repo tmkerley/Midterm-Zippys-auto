@@ -7,6 +7,19 @@ require './model/types_db.php';
 require './model/vehicle_db.php';
 require './model/make_db.php';
 
+$typeFilter = filter_input(INPUT_POST, 'typeFilter');
+$classFilter = filter_input(INPUT_POST, 'classFilter');
+$clear = filter_input(INPUT_POST, 'clearFlag');
+if($clear){
+    $filterFlag = FALSE;
+}
+else if (isset($typeFilter) || isset($classFilter)) {
+    $filterFlag = TRUE;
+}
+else {
+    $filterFlag = FALSE;
+}
+
 $sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
     $sortType = '0';
