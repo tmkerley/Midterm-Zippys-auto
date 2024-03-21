@@ -41,6 +41,9 @@
                 <input class="btn btn-primary" type="submit">
             </form>
         </div>
+        <form action="index.php" method="post">
+            <button class="btn-danger" name="clearFlag" value="TRUE" type="submit">
+        </form>
     </div>
     <section>
         <?php if($vehicles) { ?>
@@ -59,8 +62,8 @@
                     <tbody>
                         <?php foreach ($vehicles as $vehicle) : 
                             if($filterFlag) {
-                                if($vehicle['typeID'] != $filterTypeID && 
-                                    $vehicle['classID'] != $filterclassID) { 
+                                if($vehicle['typeID'] != $typeFilter && 
+                                    $vehicle['classID'] != $classFilter) { 
                                         continue; }}?>
                                 <tr>
                                 <td><?php echo $vehicle['year']; ?></td>

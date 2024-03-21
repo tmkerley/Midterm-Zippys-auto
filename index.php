@@ -22,7 +22,7 @@ else if (isset($typeFilter) || isset($classFilter)) {
 else {
     $filterFlag = FALSE;
 }
-
+echo $filterFlag;
 $sortType = filter_input(INPUT_POST, 'sortType');
 if(empty($sortType)) {
     $sortType = '0';
