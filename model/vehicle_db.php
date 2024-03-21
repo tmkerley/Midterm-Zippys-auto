@@ -2,7 +2,7 @@
 
 function get_vehicles_by_type($type_id) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d;
+    $query = '
         SELECT * FROM vehicles
         INNER JOIN types ON vehicles.typeID = types.typeID
         INNER JOIN classes ON vehicles.classID = classes.classID
@@ -34,7 +34,7 @@ function get_vehicles() {
 
 function get_ascending_price_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d; 
+    $query = '
     SELECT * FROM vehicles
     INNER JOIN types ON vehicles.typeID = types.typeID
     INNER JOIN classes ON vehicles.classID = classes.classID
@@ -49,7 +49,7 @@ function get_ascending_price_vehicles() {
 
 function get_descending_year_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d; 
+    $query = '
     SELECT * FROM vehicles
     INNER JOIN types ON vehicles.typeID = types.typeID
     INNER JOIN classes ON vehicles.classID = classes.classID
@@ -64,7 +64,7 @@ function get_descending_year_vehicles() {
 
 function get_ascending_year_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d; 
+    $query = '
     SELECT * FROM vehicles
     INNER JOIN types ON vehicles.typeID = types.typeID
     INNER JOIN classes ON vehicles.classID = classes.classID
@@ -79,7 +79,7 @@ function get_ascending_year_vehicles() {
 
 function filter_by_make($makeID) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d;
+    $query = '
         SELECT * FROM vehicles
         INNER JOIN types ON vehicles.typeID = types.typeID
         INNER JOIN classes ON vehicles.classID = classes.classID
@@ -96,9 +96,9 @@ function filter_by_make($makeID) {
 
 function delete_vehicle($vehicle_id) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d;
-                DELETE FROM vehicles
-                WHERE vehicleID = :vehicleID';
+    $query = '
+        DELETE FROM vehicles
+        WHERE vehicleID = :vehicleID';
     $statement = $db->prepare($query);
     $statement->bindValue(':vehicleID', $vehicle_id);
     $statement->execute();
@@ -107,11 +107,11 @@ function delete_vehicle($vehicle_id) {
 
 function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d;
-                INSERT INTO vehicles
-                typeID, classID, year, make, model, price
-                VALUES
-                :typeID, :classID, :year, :make, :model, :price';
+    $query = '
+        INSERT INTO vehicles
+        typeID, classID, year, make, model, price
+        VALUES
+        :typeID, :classID, :year, :make, :model, :price';
     $statement = $db->prepare($query);
     $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
