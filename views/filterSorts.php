@@ -9,7 +9,7 @@
                 </option>
             <?php endforeach; ?>
             <button class="btn btn-outline-primary" type="button" 
-                value="Filter type" for="filterTypesSelector">
+                value="Filter type" for="filterTypesSelector">Filter
             </select>
         </form>
     </div>

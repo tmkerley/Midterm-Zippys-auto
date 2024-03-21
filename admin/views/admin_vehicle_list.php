@@ -1,5 +1,5 @@
 <main>
-    <?php include '../filterSorts.php'; ?>
+    <?php include '../../views/filterSorts.php'; ?>
     <section class="container">
         <?php if($vehicles) { ?>
             <div id="table-overflow">
