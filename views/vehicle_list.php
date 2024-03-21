@@ -1,8 +1,8 @@
 <main>
-    <section>
-        <div class="container">
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="filterTypesSelector">By Types:</label>
+    <div class="container">
+        <div class="input-group mb-3">
+            <form action="index.php" method="post">
+                <label class="input-group-text" for="filterTypesSelector">Types:</label>
                 <select class="form-select" name="typefilter" id="filterTypesSelector">
                 <option value="0">Select Type</option>
                 <?php foreach ($types as $type) : ?>
@@ -10,34 +10,38 @@
                         <?php echo $type['typeName']; ?>
                     </option>
                 <?php endforeach; ?>
-                <input class="btn btn-primary" type="submit" value="typeFilter">
+                <input class="btn btn-primary" type="submit" value="Filter">
                 </select>
-            </div>
-                Filter by Class:
-                <select class="form-select" name="classfilter">
+            </form>
+        </div>
+        <div class="input-group mb-3">
+            <form action="index.php" method="post">
+                <label class="iput-group-text" for="filterClassSelector">Classes:</label>
+                <select class="form-select" name="classfilter" id="filterClassSelector">
                 <?php foreach ($classes as $class) : ?>
                     <option value="<?php echo $class['classID']; ?>">
                         <?php echo $class['className']; ?>
                     </option>
                 <?php endforeach; ?>
-                </select><br>
+                </select>
                 <input class="btn btn-primary" type="submit" value="classFilter">
-        </div>
-
-        <div class="container">
-            <form action="index.php" method="post">
-            Sort By:
-            <select class="form-select" name="sortType">
-                <option value="0">Select Type</option>
-                <option value="1">Price(Descending)</option>
-                <option value="2">Price(Ascending)</option>
-                <option value="3">Year(Descending)</option>
-                <option value="4">Year(Ascending)</option>
-            </select>
-            <input class="btn btn-primary" type="submit">
             </form>
         </div>
-    </section>
+        <div class="input-group mb-3">
+            <form action="index.php" method="post">
+                <label class="iput-group-text" for="sortSelector">Sort:</label>
+                Sort By:
+                <select class="form-select" name="sortType" id="sortSelector">
+                    <option value="0">Select Type</option>
+                    <option value="1">Price(Descending)</option>
+                    <option value="2">Price(Ascending)</option>
+                    <option value="3">Year(Descending)</option>
+                    <option value="4">Year(Ascending)</option>
+                </select>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
     <section>
         <?php if($vehicles) { ?>
             <div id="table-overflow">
@@ -53,15 +57,19 @@
                         </tr>
                     </thread>
                     <tbody>
-                        <?php foreach ($vehicles as $vehicle) : ?>
-                        <tr>
-                            <td><?php echo $vehicle['year']; ?></td>
-                            <td><?php echo $vehicle['makeName']; ?></td>
-                            <td><?php echo $vehicle['model']; ?></td>
-                            <td><?php echo $vehicle['typeName']; ?></td>
-                            <td><?php echo $vehicle['className']; ?></td>
-                            <td><?php echo $vehicle['price']; ?></td>
-                        </tr>
+                        <?php foreach ($vehicles as $vehicle) : 
+                            if($filterFlag) {
+                                if($vehicle['typeID'] != $filterTypeID && 
+                                    $vehicle['classID'] != $filterclassID) { 
+                                        continue; }}?>
+                                <tr>
+                                <td><?php echo $vehicle['year']; ?></td>
+                                <td><?php echo $vehicle['makeName']; ?></td>
+                                <td><?php echo $vehicle['model']; ?></td>
+                                <td><?php echo $vehicle['typeName']; ?></td>
+                                <td><?php echo $vehicle['className']; ?></td>
+                                <td><?php echo $vehicle['price']; ?></td>
+                                </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
