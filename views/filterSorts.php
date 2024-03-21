@@ -22,7 +22,7 @@
                 </option>
             <?php endforeach; ?>
             </select>
-            <input class="btn btn-primary" type="submit" value="classFilter">
+            <input class="btn btn-primary" type="submit" value="Filter">
         </form>
     </div>
     <div class="input-group mb-3 col-md-4">

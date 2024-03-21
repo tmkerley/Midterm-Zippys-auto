@@ -21,6 +21,19 @@ case 'list_vehicles':
     $vehicles = get_vehicles($vehicle_id);
     include('./views/admin_vehicle_list.php');
 
+    $typeFilter = filter_input(INPUT_POST, 'typeFilter');
+    $classFilter = filter_input(INPUT_POST, 'classFilter');
+    $clear = filter_input(INPUT_POST, 'clearFlag');
+
+    if($clear){
+    $filterFlag = FALSE;
+    }
+    else if (isset($typeFilter) || isset($classFilter)) {
+    $filterFlag = TRUE;
+    }
+    else {
+    $filterFlag = FALSE;
+    }
     $sortType = filter_input(INPUT_POST, 'sortType');
     if(empty($sortType)) {
         $sortType = '0';
