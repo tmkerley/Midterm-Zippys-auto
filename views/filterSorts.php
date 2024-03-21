@@ -8,8 +8,7 @@
                     <?php echo $type['typeName']; ?>
                 </option>
             <?php endforeach; ?>
-            <button class="btn btn-outline-primary" type="button" 
-                value="Filter type" for="filterTypesSelector">Filter
+            <button class="btn btn-outline-primary" type="button">Filter</button>
             </select>
         </form>
     </div>
