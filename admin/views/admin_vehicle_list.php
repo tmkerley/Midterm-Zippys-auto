@@ -1,4 +1,5 @@
 <main>
+    <?php include '../filterSorts.php'; ?>
     <section>
         <div class="container">
         Filter by Type:
