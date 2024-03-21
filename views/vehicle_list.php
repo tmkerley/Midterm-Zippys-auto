@@ -9,7 +9,7 @@
                         <?php echo $type['typeName']; ?>
                     </option>
                 <?php endforeach; ?>
-                <input class="btn btn-outline-primary" type="submit" 
+                <button class="btn btn-outline-primary" type="button" 
                     value="Filter type" for="filterTypesSelector">
                 </select>
             </form>
