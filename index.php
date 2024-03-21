@@ -16,10 +16,6 @@ switch($sortType){
 case '0':
 case '1':
     $vehicles = get_vehicles();
-    if(empty($vehicles)) {
-        $error = "Theres nothing in the index variable $vehicles.";
-        include './errors/error.php';
-    }
     break;
 case '2':
     $vehicles = get_ascending_price_vehicles();

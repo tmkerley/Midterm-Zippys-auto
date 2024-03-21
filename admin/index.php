@@ -20,6 +20,31 @@ case 'list_vehicles':
     $vehicle_id = filter_input(INPUT_GET, 'vehicleID', FILTER_VALIDATE_INT);
     $vehicles = get_vehicles($vehicle_id);
     include('./views/admin_vehicle_list.php');
+
+    $sortType = filter_input(INPUT_POST, 'sortType');
+    if(empty($sortType)) {
+        $sortType = '0';
+    }
+    // sort by price or year either by ascending or decending
+    switch($sortType){
+    case '0':
+    case '1':
+        $vehicles = get_vehicles();
+        break;
+    case '2':
+        $vehicles = get_ascending_price_vehicles();
+        break;
+    case '3':
+        $vehicles = get_descending_year_vehicles();
+        break;
+    case '4':
+        $vehicles = get_ascending_year_vehicles();
+        break;
+    default:
+        $error = "Null, false, or wrong value for sortType.";
+        include './errors/error.php';
+        break;
+}
     break;
 
 case 'list_types':

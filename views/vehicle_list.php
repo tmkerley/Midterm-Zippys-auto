@@ -39,7 +39,7 @@
     <section>
         <?php if($vehicles) { ?>
             <div id="table-overflow">
-                <table class="table">
+                <table class="table table-striped">
                     <thread>
                         <tr>
                             <th>Year</th>
