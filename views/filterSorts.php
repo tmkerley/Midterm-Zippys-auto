@@ -41,6 +41,6 @@
         </form>
     </div>
     <form action="index.php" method="post">
-        <button class="btn-danger" name="clearFlag" value="TRUE" type="submit">Clear</button>
+        <button class="btn btn-danger" name="clearFlag" value="TRUE" type="submit">Clear</button>
     </form>
 </div>

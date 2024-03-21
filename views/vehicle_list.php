@@ -1,6 +1,6 @@
 <main>
     <?php include 'filterSorts.php'; ?>
-    <section>
+    <section class="container">
         <?php if($vehicles) { ?>
             <div id="table-overflow">
                 <table class="table table-striped">
