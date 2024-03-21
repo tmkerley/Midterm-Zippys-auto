@@ -5,7 +5,9 @@
     
     try {
         $db = new PDO($dsn, $username, $password);
-        echo "Connected to successfully!";
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
     }catch(PDOExeption $e) {
         $error_message = $e->getMessage();
         include('../errors/db_error.php');

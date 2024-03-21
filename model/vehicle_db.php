@@ -84,9 +84,9 @@ function add_vehicle($type_id, $class_id, $year, $make, $model, $price) {
     global $db;
     $query = 'USE w2rm76kscxad3b8d;
                 INSERT INTO vehicles
-                (typeID, classID, year, make, model, price)
+                typeID, classID, year, make, model, price
                 VALUES
-                (:typeID, :classID, :year, :make, :model, :price)';
+                :typeID, :classID, :year, :make, :model, :price';
     $statement = $db->prepare($query);
     $statement->bindValue(':typeID', $type_id);
     $statement->bindValue(':classID', $class_id);
