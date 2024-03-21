@@ -10,6 +10,9 @@ require './model/make_db.php';
 $typeFilter = filter_input(INPUT_POST, 'typeFilter');
 $classFilter = filter_input(INPUT_POST, 'classFilter');
 $clear = filter_input(INPUT_POST, 'clearFlag');
+
+echo $typeFilter;
+echo $classFilter;
 if($clear){
     $filterFlag = FALSE;
 }

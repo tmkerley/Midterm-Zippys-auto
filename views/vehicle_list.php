@@ -2,14 +2,14 @@
     <div class="container">
         <div class="input-group mb-3">
             <form action="index.php" method="post">
-                <select class="form-select" name="typefilter" id="filterTypesSelector">
+                <select class="form-select" name="typeFilter" id="filterTypesSelector">
                 <option value="0">Select Type</option>
                 <?php foreach ($types as $type) : ?>
                     <option value="<?php echo $type['typeID']; ?>">
                         <?php echo $type['typeName']; ?>
                     </option>
                 <?php endforeach; ?>
-                <input class="btn btn-outline-secondary" type="submit" 
+                <input class="btn btn-outline-primary" type="submit" 
                     value="Filter type" for="filterTypesSelector">
                 </select>
             </form>
@@ -17,7 +17,7 @@
         <div class="input-group mb-3">
             <form action="index.php" method="post">
                 <label class="iput-group-text" for="filterClassSelector">Classes:</label>
-                <select class="form-select" name="classfilter" id="filterClassSelector">
+                <select class="form-select" name="classFilter" id="filterClassSelector">
                 <?php foreach ($classes as $class) : ?>
                     <option value="<?php echo $class['classID']; ?>">
                         <?php echo $class['className']; ?>
