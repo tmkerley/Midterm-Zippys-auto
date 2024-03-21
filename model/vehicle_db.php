@@ -20,11 +20,11 @@ function get_vehicles_by_type($type_id) {
 function get_vehicles() {
     global $db;
     $query = 'USE w2rm76kscxad3b8d; 
-        SELECT * FROM vehicles
-        INNER JOIN types ON vehicles.typeID = types.typeID
-        INNER JOIN classes ON vehicles.classID = classes.classID
-        INNER JOIN make ON vehicles.makeID = make.makeID
-        ORDER BY price DESC';
+    SELECT * FROM vehicles
+    INNER JOIN types ON vehicles.typeID = types.typeID
+    INNER JOIN classes ON vehicles.classID = classes.classID
+    INNER JOIN make ON vehicles.makeID = make.makeID
+    ORDER BY price DESC';
     $statement = $db->prepare($query);
     $statement->execute();
     $vehicles = $statement->fetchAll();
@@ -34,11 +34,42 @@ function get_vehicles() {
 
 function get_ascending_price_vehicles() {
     global $db;
-    $query = 'USE w2rm76kscxad3b8d; SELECT * FROM vehicles
-        INNER JOIN types ON vehicles.typeID = types.typeID
-        INNER JOIN classes ON vehicles.classID = classes.classID
-        INNER JOIN make ON vehicles.makeID = make.makeID
-        ORDER BY price ASC';
+    $query = 'USE w2rm76kscxad3b8d; 
+    SELECT * FROM vehicles
+    INNER JOIN types ON vehicles.typeID = types.typeID
+    INNER JOIN classes ON vehicles.classID = classes.classID
+    INNER JOIN make ON vehicles.makeID = make.makeID
+    ORDER BY price ASC';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $vehicles = $statement->fetchAll();
+    $statement->closeCursor();
+    return $vehicles;
+}
+
+function get_descending_year_vehicles() {
+    global $db;
+    $query = 'USE w2rm76kscxad3b8d; 
+    SELECT * FROM vehicles
+    INNER JOIN types ON vehicles.typeID = types.typeID
+    INNER JOIN classes ON vehicles.classID = classes.classID
+    INNER JOIN make ON vehicles.makeID = make.makeID
+    ORDER BY year ASC';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $vehicles = $statement->fetchAll();
+    $statement->closeCursor();
+    return $vehicles;
+}
+
+function get_ascending_year_vehicles() {
+    global $db;
+    $query = 'USE w2rm76kscxad3b8d; 
+    SELECT * FROM vehicles
+    INNER JOIN types ON vehicles.typeID = types.typeID
+    INNER JOIN classes ON vehicles.classID = classes.classID
+    INNER JOIN make ON vehicles.makeID = make.makeID
+    ORDER BY year ASC';
     $statement = $db->prepare($query);
     $statement->execute();
     $vehicles = $statement->fetchAll();
