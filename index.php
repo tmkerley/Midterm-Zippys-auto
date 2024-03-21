@@ -24,15 +24,15 @@ case '1':
     break;
 case '2':
     $sortType = 'price';
-    $vehicles = get_sorted_vehicles($sortType, TRUE);
+    $vehicles = get_sorted_vehicles(TRUE);
     break;
 case '3':
     $sortType = 'year';
-    $vehicles = get_sorted_vehicles($sortType, FALSE);
+    $vehicles = get_sorted_vehicles(FALSE);
     break;
 case '4':
     $sortType = 'year';
-    $vehicles = get_sorted_vehicles($sortType, TRUE);
+    $vehicles = get_sorted_vehicles(TRUE);
     break;
 default:
     $error = "Null, false, or wrong value for sortType.";
