@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 col-md-4">
         <form action="index.php" method="post">
             <select class="form-select" name="typeFilter" id="filterTypesSelector">
             <option value="0">Select Type</option>
@@ -13,7 +13,7 @@
             </select>
         </form>
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 col-md-4">
         <form action="index.php" method="post">
             <label class="iput-group-text" for="filterClassSelector">Classes:</label>
             <select class="form-select" name="classFilter" id="filterClassSelector">
@@ -26,7 +26,7 @@
             <input class="btn btn-primary" type="submit" value="classFilter">
         </form>
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 col-md-4">
         <form action="index.php" method="post">
             <label class="iput-group-text" for="sortSelector">Sort:</label>
             Sort By:
