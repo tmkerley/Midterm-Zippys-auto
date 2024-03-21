@@ -15,7 +15,6 @@ if(empty($sortType)) {
 switch($sortType){
 case '0':
 case '1':
-    $sortType = 'price';
     $vehicles = get_vehicles();
     if(empty($vehicles)) {
         $error = "Theres nothing in the index variable $vehicles.";
@@ -23,16 +22,13 @@ case '1':
     }
     break;
 case '2':
-    $sortType = 'price';
-    $vehicles = get_sorted_vehicles(TRUE);
+    $vehicles = get_ascending_price_vehicles();
     break;
 case '3':
-    $sortType = 'year';
-    $vehicles = get_sorted_vehicles(FALSE);
+    $vehicles = get_descending_year_vehicles();
     break;
 case '4':
-    $sortType = 'year';
-    $vehicles = get_sorted_vehicles(TRUE);
+    $vehicles = get_ascending_year_vehicles();
     break;
 default:
     $error = "Null, false, or wrong value for sortType.";
@@ -44,6 +40,6 @@ $types = get_types();
 $classes = get_classes();
 $make = get_make();
 
-include('./views/vehicle_list.php');
+include './views/vehicle_list.php';
 
 include './views/footer.php';
