@@ -54,7 +54,7 @@ function get_descending_year_vehicles() {
     INNER JOIN types ON vehicles.typeID = types.typeID
     INNER JOIN classes ON vehicles.classID = classes.classID
     INNER JOIN make ON vehicles.makeID = make.makeID
-    ORDER BY year ASC';
+    ORDER BY year DESC';
     $statement = $db->prepare($query);
     $statement->execute();
     $vehicles = $statement->fetchAll();
